@@ -1,0 +1,17 @@
+# Component Name = gmapping
+
+load_paths: ["./"]
+operations:
+  load_paths: ["/opt/juiz/share/juiz/ContainerName", "${ShelfDirectory}", "../build/lib/Debug", "../build/lib/Release"]
+  preload: []
+containers:
+  load_paths: ["/opt/juiz/share/juiz/ContainerName", "${ShelfDirectory}", "../build/lib/Debug", "../build/lib/Release"]
+  preload: {}
+
+
+
+
+
+
+
+

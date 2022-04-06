@@ -1,0 +1,9 @@
+
+This is a fork from openslam_gmapping at https://github.com/ros-perception/openslam_gmapping
+
+Originally, this is a fork from gmapping at https://openslam.informatik.uni-freiburg.de/data/svn/gmapping/trunk/
+It includes a few patches that could be pushed upstream if needed
+
+
+Purpose of this repository is to break the jail of ROS.org.
+Plain and Portable gmapping will be provided for the users of Linux, OSX, and Windows!

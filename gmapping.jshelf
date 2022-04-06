@@ -1,0 +1,27 @@
+
+containers:   
+  load_paths: 
+    - "/opt/juiz/share/juiz/gmapping"
+    - "${ShelfDirectory}"
+    - "../build/lib/Debug"
+    - "../build/lib/Release"
+
+  preload:     
+    gmapping:       
+      operations: 
+        - "startMapping"
+        - "stopMapping"
+        - "getMap"
+        - "resetMap"
+
+load_paths: 
+  - "./"
+
+operations:   
+  load_paths: 
+    - "/opt/juiz/share/juiz/gmapping"
+    - "${ShelfDirectory}"
+    - "../build/lib/Debug"
+    - "../build/lib/Release"
+
+  preload: []
