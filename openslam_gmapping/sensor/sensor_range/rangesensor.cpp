@@ -5,7 +5,7 @@ namespace GMapping{
 RangeSensor::RangeSensor(std::string name): Sensor(name){}
 
 RangeSensor::RangeSensor(std::string name, unsigned int beams_num, double res, const OrientedPoint& position, double span, double maxrange):Sensor(name),
-	m_pose(position), m_beams(beams_num){
+	m_pose(position), m_beams(beams_num), m_res(res), m_maxRange(maxrange) {
 	double angle=-.5*res*beams_num;
 	for (unsigned int i=0; i<beams_num; i++, angle+=res){
 		RangeSensor::Beam& beam(m_beams[i]);

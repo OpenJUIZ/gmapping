@@ -1,25 +1,29 @@
 
 containers:   
   load_paths: 
-    - "/opt/juiz/share/juiz/gmapping"
+    - "/opt/juiz/share/juiz/GridMapping"
     - "${ShelfDirectory}"
     - "../build/lib/Debug"
     - "../build/lib/Release"
 
   preload:     
-    gmapping:       
+    GridMapping:       
       operations: 
         - "startMapping"
         - "stopMapping"
         - "getMap"
         - "resetMap"
+        - "setSensorReading"
+        - "updateMap"
+        - "updatePose"
+        - "getPose"
 
 load_paths: 
   - "./"
 
 operations:   
   load_paths: 
-    - "/opt/juiz/share/juiz/gmapping"
+    - "/opt/juiz/share/juiz/GridMapping"
     - "${ShelfDirectory}"
     - "../build/lib/Debug"
     - "../build/lib/Release"

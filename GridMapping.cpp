@@ -1,5 +1,5 @@
 /**
- * @file gmapping.cpp
+ * @file GridMapping.cpp
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -12,18 +12,18 @@
 #include <juiz/juiz.h>
 #include <juiz/container.h>
 
-#include "gmapping.h"
+#include "GridMapping.h"
 
 using namespace juiz;
 
 extern "C" {
     /**
-     * @brief Create a gmapping object
+     * @brief Create a GridMapping object
      * 
      * @return JUIZ_OPERATION*
      */
-    JUIZ_OPERATION  void* creategmapping() {
-        return containerFactory<gmapping>();
+    JUIZ_OPERATION  void* createGridMapping() {
+        return containerFactory<GridMapping>();
     }
 
 }

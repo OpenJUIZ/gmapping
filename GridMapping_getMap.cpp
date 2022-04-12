@@ -1,24 +1,24 @@
 #include <juiz/juiz.h>
 #include <juiz/container.h>
 
-#include "gmapping.h"
+#include "GridMapping.h"
 
 using namespace juiz;
 
 
 extern "C" {
 
-    JUIZ_OPERATION  void* gmapping_stopMapping() {
-        return containerOperationFactory<gmapping>(
+    JUIZ_OPERATION  void* GridMapping_getMap() {
+        return containerOperationFactory<GridMapping>(
             {
-              {"typeName", "stopMapping"},
+              {"typeName", "getMap"},
               {"defaultArg", {
                   {}
               }},
             },
             [](auto& container, auto arg) -> juiz::Value {
                 
-                return Value::error("gmapping_stopMapping is not implemented yet.");
+                return container.map;
             }
         );
     }

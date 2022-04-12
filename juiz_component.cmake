@@ -7,9 +7,12 @@
 set(EXPORTING_OPERATIONS PARENT_SCOPE)
 set(EXPORTING_CONTAINERS PARENT_SCOPE)
 
-add_subdirectory(openslam_gmapping)
 
 # --- FUNCTION DEFINITION
+
+
+add_subdirectory(openslam_gmapping)
+include_directories(${CMAKE_SOURCE_DIR}/openslam_gmapping/include/)
 
 # Add Operation to target
 function(add_operation NAME)
@@ -31,6 +34,12 @@ endfunction(add_operation)
 # Add Container to target.
 # This function is used for ContainerOperation as well
 function(add_container_impl NAME)
+
+
+# add_subdirectory(openslam_gmapping)
+
+#include_directories(${CMAKE_SOURCE_DIR}/openslam_gmapping/include/gmapping)
+
   add_library(${NAME} SHARED ${NAME}.cpp)
   # add_dependencies(${NAME} ${JUIZ_LIBS})
   target_link_libraries(${NAME} ${JUIZ_LIBS} ${EXT_LIBS})

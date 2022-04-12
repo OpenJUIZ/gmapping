@@ -25,9 +25,13 @@ class RangeSensor: public Sensor{
 		inline OrientedPoint getPose() const {return m_pose;}
 		void updateBeamsLookup();
 		bool newFormat;
+		double angularResolution() const { return m_res; }
+		double maxRange() const { return m_maxRange; }
 	protected:
 		OrientedPoint m_pose;
 		std::vector<Beam> m_beams;
+		double m_res;
+		double m_maxRange;
 };
 
 };

@@ -1,24 +1,24 @@
 #include <juiz/juiz.h>
 #include <juiz/container.h>
 
-#include "gmapping.h"
+#include "GridMapping.h"
 
 using namespace juiz;
 
 
 extern "C" {
 
-    JUIZ_OPERATION  void* gmapping_resetMap() {
-        return containerOperationFactory<gmapping>(
+    JUIZ_OPERATION  void* GridMapping_getPose() {
+        return containerOperationFactory<GridMapping>(
             {
-              {"typeName", "resetMap"},
+              {"typeName", "getPose"},
               {"defaultArg", {
                   {}
               }},
             },
             [](auto& container, auto arg) -> juiz::Value {
                 
-                return Value::error("gmapping_resetMap is not implemented yet.");
+                return toValue(container.pose);
             }
         );
     }

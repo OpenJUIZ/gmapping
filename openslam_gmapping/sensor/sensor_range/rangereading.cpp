@@ -20,6 +20,14 @@ RangeReading::RangeReading(unsigned int n_beams, const double* d, const RangeSen
 		(*this)[i]=d[i];
 }
 
+RangeReading::RangeReading(unsigned int n_beams, const double* d, const RangeSensor* rs, const OrientedPoint& pose, double time):
+	SensorReading(rs,time), m_pose(pose) {
+	assert(n_beams==rs->beams().size());
+	resize(n_beams);
+	for (unsigned int i=0; i<size(); i++)
+		(*this)[i]=d[i];
+}
+
 RangeReading::~RangeReading(){
 //	cerr << __PRETTY_FUNCTION__ << ": CAZZZZZZZZZZZZZZZZZZZZOOOOOOOOOOO" << endl;
 }

@@ -1,14 +1,14 @@
-message("---------------------- gmapping project --------------------------")
+message("---------------------- GridMapping project --------------------------")
 
 cmake_minimum_required(VERSION 3.10)
 
-project(gmapping LANGUAGES CXX C)
+project(GridMapping LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CONTAINERS gmapping)
-set(CONTAINER_OPERATIONS gmapping_startMapping gmapping_stopMapping gmapping_getMap gmapping_resetMap)
+set(CONTAINERS GridMapping)
+set(CONTAINER_OPERATIONS GridMapping_getMap GridMapping_resetMap GridMapping_setSensorReading GridMapping_updateMap GridMapping_updatePose GridMapping_getPose)
 set(OPERATIONS)
 
 find_package(juiz)
@@ -18,13 +18,16 @@ message("- juiz_INCLUDE_DIR: " ${juiz_INCLUDE_DIR})
 message("- juiz_LIB_DIR    : " ${juiz_LIB_DIR})
 message("- juiz_LIBRARIES  : " ${juiz_LIBRARIES})
 
-set(JUIZ_LIBS ${juiz_LIBRARIES})
-set(EXT_LIBS)
 
 include(juiz_component.cmake)
 
+set(JUIZ_LIBS ${juiz_LIBRARIES})
+set(EXT_LIBS gmapping_gridfastslam)
+
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${juiz_INCLUDE_DIR})
+
+
 link_directories(${juiz_LIB_DIR})
 
 # Output basic information of this project.
@@ -43,8 +46,8 @@ add_operations(OPERATIONS)
 set(GMAPPING_MODULES ${OPERATIONS} ${CONTAINERS} ${ECS} PARENT_SCOPE)
 
 # Installing files for targets
-INSTALL(TARGETS ${CONTAINERS} ${CONTAINER_OPERATIONS} ${OPERATIONS} DESTINATION ${juiz_ROOT_DIR}/share/juiz/components/gmapping)
-INSTALL(FILES gmapping.jshelf DESTINATION ${juiz_ROOT_DIR}/share/juiz/components/gmapping)
+INSTALL(TARGETS ${CONTAINERS} ${CONTAINER_OPERATIONS} ${OPERATIONS} DESTINATION ${juiz_ROOT_DIR}/share/juiz/components/GridMapping)
+INSTALL(FILES GridMapping.jshelf DESTINATION ${juiz_ROOT_DIR}/share/juiz/components/GridMapping)
 
 
 
